@@ -1,50 +1,43 @@
-# Process Scheduling and Priorities in QNX Neutrino RTOS
+# Advanced PIO and LCD Handling on Atmel AT91SAM7
 
 **by**: Min Khant Soe Oke, Kaung Sithu
 
 ## Overview
 
-This project explores process scheduling and priority mechanisms in the QNX Neutrino RTOS. By creating multiple child processes with varying priorities and scheduling policies, the project demonstrates how the QNX scheduler manages CPU allocation among competing processes. Understanding these concepts is essential for developing real-time applications that require precise timing and prioritization to ensure timely and efficient task execution.
+This project demonstrates advanced handling of the PIO controller embedded in the Atmel AT91SAM7 microcontroller and the LCD display on the SAM7-EX256 evaluation board. The exercise involves reading the state of a joystick and buttons connected to the PIO ports and displaying and moving a character on the LCD screen based on user input.
 
 ## Dependencies
 
 **To run this project, you need to have the following dependencies installed:**
 
-* QNX Neutrino RTOS
-* Basic understanding of Unix-like operating systems
-* Familiarity with C programming and system calls related to process and scheduling management
+* Atmel AT91SAM7X256 microcontroller
+* Olimex SAM7-EX256 evaluation board
+* IAR Embedded Workbench
+* Basic knowledge of C programming
 
 ## Features
 
-**Process Priorities**
-- Processes have priorities ranging from 0 to 255, with 255 being the highest.
-- Higher priority processes are given CPU time before lower priority ones.
+**PIO Handling**
+- Reading the state of the joystick and buttons connected to the PIO ports.
+- Detecting rising and falling edges of input signals to determine user actions.
 
-**Preemptive Scheduling**
-- The scheduler always runs the highest priority ready process.
-- If a higher priority process becomes ready, it preempts the currently running lower priority process.
-
-**Scheduling Algorithms**
-- **FIFO (First In, First Out)**: Processes run to completion unless preempted by a higher priority process.
-- **Round Robin**: Each process runs for a time slice before the scheduler switches to the next ready process.
-- **Sporadic**: Processes execute until preempted by a higher priority process or run out of their allocated time.
+**LCD Display Handling**
+- Configuring the LCD display for use with the microcontroller.
+- Displaying and moving a character on the LCD screen based on joystick and button input.
 
 ## How to Use
 
 1. **Start the Main Program**:
    - Open a terminal and run `./main`.
 
-2. **Child Process Creation**:
-   - The main process creates 10 child processes with different priorities and scheduling policies.
+2. **Read Joystick and Button States**:
+   - The program reads the state of the joystick and buttons connected to the PIO ports and calculates the rising and falling edges.
 
-3. **Priority and Policy Assignment**:
-   - Each child process is assigned a unique priority and scheduling policy (FIFO, Round Robin, or Sporadic).
+3. **Move and Display Character**:
+   - The character is displayed in the center of the screen and moves based on joystick and button actions.
 
-4. **Child Execution**:
-   - Child processes execute a computation task and print their completion status.
-
-5. **Parent Process Coordination**:
-   - The parent process waits for all child processes to complete before finishing.
+4. **Implement Additional Features**:
+   - Follow the exercise instructions to add more features, such as handling additional joystick actions and implementing the auto-repetition feature.
 
 ## Authors
 
